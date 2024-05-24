@@ -1,0 +1,17 @@
+<div>
+  <div class="row">
+    <div class="col-sm-7">
+      <div *ngFor="let person of lstPeople">
+        <h5 class="alert alert-info mt-3 mb-3 w-100" (click)="getExams(person._id)">{{person._id}} - {{person.gender}} - {{person.first}} {{person.last}} - {{person.email}}</h5>
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <h5 class=" mt-3 mb-3 w-100 bg-warning" *ngIf="webService.esamiOk">
+        <div>{{esami._id}}</div>
+        <div>{{esami._id_stud}}</div>
+        <div>{{esami.num_esami}}</div>
+        <div>{{esami.media}}</div>
+      </h5>
+    </div>
+  </div>
+</div>

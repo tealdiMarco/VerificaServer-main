@@ -1,0 +1,61 @@
+[{
+	"_id":1,
+    "_id_stud": "stud001",
+    "num_esami": 31,
+    "media": 25.8
+  },
+  {
+	"_id":2,
+    "_id_stud": "stud036",
+    "num_esami": 5,
+    "media": 27
+  },
+  {
+	"_id":3,
+    "_id_stud": "stud041",
+    "num_esami": 15,
+    "media": 23.8
+  },
+  {
+	"_id":4,
+    "_id_stud": "stud035",
+    "num_esami": 19,
+    "media": 30
+  },
+  {
+	"_id":5,
+    "_id_stud": "stud009",
+    "num_esami": 27,
+    "media": 27.3
+  },
+  {
+	"_id":6,
+    "_id_stud": "stud028",
+    "num_esami": 16,
+    "media": 25.8
+  },
+  {
+	"_id":7,
+    "_id_stud": "stud014",
+    "num_esami": 33,
+    "media": 24
+  },
+  {
+	"_id":8,
+    "_id_stud": "stud004",
+    "num_esami": 22,
+    "media": 25.7
+  },
+  {
+	"_id":9,
+    "_id_stud": "stud003",
+    "num_esami": 15,
+    "media": 29.4
+  },
+  {
+	"_id":10,
+    "_id_stud": "stud021",
+    "num_esami": 12,
+    "media": 27
+  }
+]
