@@ -66,6 +66,8 @@ app.post("/api/login",function (req,res){
     });
 });
 
+
+
 app.post("/api/loginCookie",function (req,res){
     let query = {user:req.body.username};
     mongoFunctions.findLogin(req,"studenti","users",query,function (err,data){
@@ -77,6 +79,24 @@ app.post("/api/loginCookie",function (req,res){
             res.send({msg:"Login OK"});
         }else
             error(req,res,err);
+    });
+});
+
+app.get("/api/getPeople",function (req,res){
+    tokenAdministration.ctrlTokenLocalStorage(req, payload => {
+        console.log(payload);
+        if(!payload.err_exp){   // token ok
+            mongoFunctions.find("people","people",{},function (err,data){
+                if(err.codeErr == -1){
+                    tokenAdministration.createToken(payload);
+                    res.send({data:data,token:tokenAdministration.token});
+                }else
+                    error(req,res,err);
+            });
+        }else{
+            console.log(payload.message);
+            error(req,res,{codeErr:403,message:payload.message});
+        }
     });
 });
 

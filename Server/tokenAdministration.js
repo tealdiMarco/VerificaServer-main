@@ -11,7 +11,9 @@ let tokenAdministration = function (){
 tokenAdministration.prototype.createToken = function (user){
     this.token = jwt.sign({
         _id:user._id,
-        user:user.user,
+        user:user.username,
+        mail:user.email,
+        nat:user.nat,
         exp:Math.floor(Date.now()/1000 + 10)
         },
         this.privateKey);

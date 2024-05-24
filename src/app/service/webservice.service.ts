@@ -16,11 +16,13 @@ export class WebserviceService {
 
   async getPeople(endPoint:string): Promise<any>{
     await new Promise((resolve,reject)=>{
-      this.headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
-      this.connectionService.sendGetRequest(endPoint).subscribe(
+      this.headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8', token:localStorage.getItem("token") || ""});
+      this.connectionService.sendGetRequest(endPoint,{headers:this.headers}).subscribe(
         (data:any)=>{
           console.log("In service: data from DB studenti OK");
           resolve(this.peopleData=data.data);
+          localStorage.setItem("token",data.token);
+          console.log(data.data);
         },
         (error:any)=>{
           console.log("Errore get People");
@@ -30,6 +32,7 @@ export class WebserviceService {
       );
     });
   }
+
 
   async getExams(endPoint: string, idPerson: any): Promise<any>{
     await new Promise((resolve,reject)=>{

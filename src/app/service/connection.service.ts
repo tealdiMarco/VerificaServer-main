@@ -11,9 +11,9 @@ export class ConnectionService {
 
   private URL_SERVICE = "https://localhost:6969/api/";
 
-  public sendGetRequest(endPoint: string){
+  public sendGetRequest(endPoint: string,headers:any){
     console.log(this.URL_SERVICE+endPoint);
-    return this.httpClient.get(this.URL_SERVICE+endPoint);
+    return this.httpClient.get(this.URL_SERVICE+endPoint,headers);
   }
 
   public sendPostRequest(endPoint: string, par: any, headers:any):Observable<any> {
