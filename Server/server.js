@@ -66,6 +66,25 @@ app.post("/api/login",function (req,res){
     });
 });
 
+app.post("/api/getEsami",function (req,res){
+    let query = {_id:req.body.id};
+    mongoFunctions.find("people","people",query,function (err,data){
+        if(err.codeErr == -1){
+            if(data.length == 0)
+                error(req,res,{codeErr:401,message:"Errore login. Username inesistente!"});
+            else{
+                if(bcrypt.compareSync(req.body.password,data[0].password)){
+                    tokenAdministration.createToken(data[0]);
+                    res.send({msg:"Login OK",token:tokenAdministration.token});
+                }else
+                    error(req,res,{codeErr:401,message:"Errore login. Password errata!"});
+            }
+        }else
+            error(req,res,err);
+            
+    });
+});
+
 
 
 app.post("/api/loginCookie",function (req,res){
