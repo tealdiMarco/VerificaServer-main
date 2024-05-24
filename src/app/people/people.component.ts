@@ -16,6 +16,9 @@ export class PeopleComponent implements OnInit{
   async ngOnInit(){
     await this.webService.getPeople("getPeople");
     this.lstPeople=this.webService.peopleData;
+    console.log("list people:"+this.lstPeople[0]._id);
+    console.log(JSON.stringify(this.lstPeople));
+
   }
 
   async getExams(_id: any) {
